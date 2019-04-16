@@ -1,8 +1,8 @@
-## DEVTOOL
+## DEVTOOLS
 
 **'Break on -> attribute modifications'**
 
-This is like a breakpoiint for the front end. It pauses on the line of code that causes a particular attribute.
+This is like a breakpoint for the front end. It pauses on the line of code that causes a particular attribute.
 
 <br>
 
