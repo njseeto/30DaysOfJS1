@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello')
+
+    // Interpolated
+    console.log('hello I am a %s string', 'interpolated')
+
+
+    let word = 'es6'
+    console.log(`Hello I am an ${word} string`) //probabaly more likely to do interpolation this way
+
+    // Styled
+    console.log('%c I am text', 'font-size:20px; background:blue;')
+
+    // warning!
+    console.warn('uh oh') //gives us a stack trace
+
+    // Error :|
+    console.error('oh dear') // also gives a stack trace
+
+    // Info
+    console.info('This will give you an info icon')
+
+    // Testing
+    const p = document.querySelector('p')
+    console.assert( 2 === 1, 'This is wrong') // This will only fire when the assertion is false
+
+    // clearing
+    console.clear()
+
+    // Viewing DOM Elements
+    console.log(p) // shows you the actual element
+    console.dir(p) // shows you all the methods and elements that are on that element
+
+    // Grouping together
+    dogs.forEach( dog => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`This is ${dog.name}`),
+      console.log(`${dog.name} is ${dog.age} years old`)
+      console.groupEnd(`${dog.name}`)
+    })
+
+    // counting
+    console.count('A')
+    console.count('B')
+    console.count('B')
+    console.count('A')
+    console.count('C')
+    console.count('A')
+    console.count('A')
+    console.count('A')
+    console.count('A')
+    console.count('C')
+    console.count('B')
+    console.count('B')
+
+    // timing
+    console.time('fetching data')
+    fetch('https://api.github.com/users/njseeto')
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd('fetching data')
+      console.log(data)
+    })
+
+    console.table(dogs)
+
+  </script>
+
+</body>
+</html>
